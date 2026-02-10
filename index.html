@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Le Monde de FEIHWAUZ</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* Bouton Acheter en haut à droite */
+    .buy-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      padding: 12px 20px;
+      background: #ff7f50;
+      color: #fff;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: 'Cinzel', serif;
+      transition: all 0.3s ease;
+      z-index: 2000;
+      text-decoration: none;
+    }
+    .buy-btn:hover {
+      background: #ff4500;
+      transform: scale(1.05);
+    }
+
+    /* Bandeau promo très visible, style “magique” */
+    .promo-banner {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(90deg, #ff7f50, #ff4500, #ff7f50);
+      color: #fff;
+      font-family: 'Cinzel', serif;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 15px 30px;
+      border-radius: 0 0 20px 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+      text-align: center;
+      z-index: 3000;
+      animation: pulse 1.5s infinite alternate;
+      cursor: pointer;
+    }
+
+    @keyframes pulse {
+      0% { text-shadow: 0 0 5px #fff, 0 0 10px #ff7f50, 0 0 20px #ff4500; }
+      100% { text-shadow: 0 0 10px #fff, 0 0 20px #ff7f50, 0 0 40px #ff4500; }
+    }
+
+    .promo-banner:hover {
+      background: linear-gradient(90deg, #ff4500, #ff7f50, #ff4500);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Bandeau Promo -->
+  <div class="promo-banner">
+    🎉 Utilisez le code <strong>FEIHWAUZ5</strong> et obtenez <strong>5% de réduction</strong> sur votre achat ! ✨
+  </div>
+
+  <!-- Curseur fée -->
+  <div id="fairy-cursor"></div>
+
+  <!-- Background animé -->
+  <div class="background"></div>
+
+  <!-- Particules arc-en-ciel -->
+  <div id="particles-container"
+       style="position:fixed; inset:0; pointer-events:none; z-index:1000;">
+  </div>
+
+  <!-- Bouton Acheter -->
+  <a href="https://www.helloeditions.fr/produit/feihwauz-reveille-des-brumes-tome-i/" class="buy-btn" target="_blank">Acheter</a>
+
+  <!-- Header -->
+  <header class="header-container">
+    <h1 class="title">
+      Le Monde de <span class="highlight">FEIHWAUZ</span>
+    </h1>
+
+    <!-- Réseaux sociaux -->
+    <div class="social-icons">
+      <a href="https://www.facebook.com/profile.php?id=61582838091516&locale=fr_FR" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@voyonsvoir8761/featured" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@feihwauz" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.instagram.com/lucie.gluck/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    </div>
+
+    <nav class="nav-menu">
+      <button class="magic-btn" onclick="turn(0)">Synopsis</button>
+      <button class="magic-btn" onclick="turn(1)">Univers</button>
+      <button class="magic-btn" onclick="turn(2)">Personnages</button>
+      <button class="magic-btn" onclick="turn(3)">Lecture</button>
+      <button class="magic-btn" onclick="turn(4)">Vidéos</button>
+      <button class="magic-btn" onclick="turn(5)">Dédicaces</button>
+      <button class="magic-btn" onclick="turn(6)">Autrice</button>
+    </nav>
+  </header>
+
+  <!-- Livre -->
+  <main class="book-container">
+
+    <!-- Couverture -->
+    <div class="cover">
+      <img src="couverture.png" alt="Couverture du livre">
+      <div class="cover-glow"></div>
+    </div>
+
+    <div class="book">
+
+      <!-- Synopsis -->
+      <section class="page active">
+        <h2 class="page-title">Synopsis</h2>
+        <p class="page-text">
+          Notre univers demeure empli de mystères, régi par des entités œuvrant
+          dans l’ombre pour maintenir l’équilibre des mondes.
+          <br><br>
+          Afin de préserver cet équilibre fragile, une jeune femme à l’ADN
+          singulier est envoyée à travers le temps jusqu’en l’an
+          <strong>911, en Auvergne</strong>.
+          Sa mission : rencontrer un jeune homme et enfanter un nouvel être
+          destiné à devenir le gardien d’un Avalon renaissant.
+          <br><br>
+          Après cette fresque médiévale, la saga se poursuit dans une époque
+          d’anticipation fantastique, avant de s’épanouir dans un futur lointain
+          aux accents de <strong>space opera</strong>.
+        </p>
+      </section>
+
+      <!-- Univers -->
+      <section class="page">
+        <h2 class="page-title">L’Univers de Feihwauz</h2>
+        <p class="page-text">
+          Après la chute d’Avalon, écrasé par l’avènement des nouvelles religions,
+          le monde ne disparaît pas.
+          <br><br>
+          Rien ne se perd, rien ne se crée : tout se transforme.
+          <br><br>
+          Feihwauz renaît des cendres d’Avalon grâce à Myrdhyn.
+          Univers en plein bourgeonnement, de nouvelles civilisations y émergent
+          avec l’espoir d’assagir l’humanité.
+          <br><br>
+          Les Akgus, formes primordiales des arbres sacrés, permettent aux prêtres
+          et prêtresses de la lune d’ouvrir des passages vers les multivers.
+        </p>
+      </section>
+
+      <!-- Personnages -->
+      <section class="page">
+        <h2 class="page-title">Les Personnages</h2>
+
+        <div class="character">
+          <h3>Lourine</h3>
+          <audio controls src="music/Thème de Lourine officiel.mp3"></audio>
+          <p class="page-text">Description du personnage Lourine.</p>
+          <img src="characters/lourine.jpg" alt="Lourine">
+        </div>
+
+        <div class="character">
+          <h3>Marthorm</h3>
+          <audio controls src="music/Thème de Marthorm officiel.mp3"></audio>
+          <p class="page-text">Description du personnage Marthorm.</p>
+          <img src="characters/marthorm.jpg" alt="Marthorm">
+        </div>
+
+        <div class="character">
+          <h3>Myrdhyn</h3>
+          <audio controls src="music/Thème de Myrdhynn v2.mp3"></audio>
+          <p class="page-text">Description du personnage Myrdhyn.</p>
+          <img src="characters/myrdhyn.jpg" alt="Myrdhyn">
+        </div>
+
+        <div class="character">
+          <h3>Drowïn</h3>
+          <audio controls src="music/Thème de Drowïn officiel.mp3"></audio>
+          <p class="page-text">Description du personnage Drowïn.</p>
+          <img src="characters/drowin.jpg" alt="Drowïn">
+        </div>
+      </section>
+
+      <!-- Lecture -->
+      <section class="page">
+        <h2 class="page-title">Lecture d’extrait</h2>
+        <p class="page-text">
+          Dans la lueur d’une vaste cheminée, Merlin en Mundo donne voix aux mots
+          de Feihwauz, face à une cathèdre vide.
+        </p>
+        <video controls width="100%">
+          <source src="videos/lecture.mp4" type="video/mp4">
+        </video>
+      </section>
+
+      <!-- Vidéos -->
+      <section class="page">
+        <h2 class="page-title">Vidéos YouTube</h2>
+        <p class="page-text">
+          Retrouvez ici lectures, présentations et créations autour de l’univers
+          de Feihwauz.
+        </p>
+        <iframe
+          width="100%"
+          height="315"
+          src="https://www.youtube.com/embed/ID_VIDEO"
+          frameborder="0"
+          allowfullscreen>
+        </iframe>
+      </section>
+
+      <!-- Dédicaces -->
+      <section class="page">
+        <h2 class="page-title">Dédicaces</h2>
+        <p class="page-text">
+          Retrouvez Lucie Gluck lors de salons, médiathèques et rencontres
+          culturelles.
+        </p>
+        <ul class="signing-list">
+          <li>📍 Lieu – Date</li>
+          <li>📍 Lieu – Date</li>
+          <li>📍 Lieu – Date</li>
+        </ul>
+      </section>
+
+      <!-- Autrice -->
+      <section class="page">
+        <h2 class="page-title">L’Autrice</h2>
+        <p class="page-text">
+          Lucie Gluck est née à Caen le mercredi 17 mars 1982.
+          <br><br>
+          Passionnée par la Scandinavie, elle nourrit son imaginaire des
+          traditions anciennes.
+          <br><br>
+          Malgré la perte définitive de sa vue, elle poursuit son œuvre et fonde
+          l’association <strong>La Chandelle de Glace</strong>.
+        </p>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+
+  <script>
+    // Fermer le bandeau promo en cliquant dessus
+    document.querySelector('.promo-banner').addEventListener('click', function() {
+      this.style.display = 'none';
+    });
+  </script>
+
+</body>
+</html>

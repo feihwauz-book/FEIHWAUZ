@@ -1,0 +1,148 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  cursor: none;
+}
+
+body {
+  font-family: "PfefferMediaeval", serif;
+  color: #f3e8c9;
+  background: #000;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* BACKGROUND */
+.background {
+  position: fixed;
+  inset: 0;
+  background: url("background.png") center / cover no-repeat;
+  filter: brightness(0.32);
+  z-index: -3;
+}
+
+/* HEADER */
+header {
+  text-align: center;
+  padding: 25px;
+  z-index: 3;
+}
+
+h1 {
+  font-family: "Cinzel", serif;
+  font-size: 3rem;
+  letter-spacing: 0.08em;
+  text-shadow: 0 0 25px #a57c2c;
+}
+
+.highlight {
+  color: #d6b56c;
+  text-shadow: 0 0 20px #d6b56c;
+}
+
+/* NAV */
+nav {
+  margin-top: 15px;
+}
+
+nav button {
+  background: rgba(0,0,0,0.55);
+  border: 1px solid #a88a44;
+  color: #e6d8b0;
+  padding: 10px 20px;
+  margin: 6px;
+  font-family: "Cinzel", serif;
+  letter-spacing: 0.15em;
+  transition: 0.3s;
+}
+
+nav button:hover {
+  color: #fff;
+  box-shadow: 0 0 18px rgba(255,217,138,0.6);
+  transform: translateY(-2px);
+}
+
+/* SOCIAL ICONS */
+.social-icons {
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-icons a {
+  font-size: 26px;
+  color: #e6d8b0;
+  text-shadow: 0 0 10px rgba(214,181,108,0.6);
+  transition: transform 0.3s, color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #ffd98a;
+  transform: scale(1.2);
+}
+
+/* LIVRE */
+.book-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 70px;
+  padding: 40px;
+}
+
+.book {
+  width: 600px;
+  height: 450px;
+  position: relative;
+}
+
+.page {
+  position: absolute;
+  inset: 0;
+  background: url("paper.jpg") center / cover no-repeat;
+  padding: 50px;
+  border-radius: 6px;
+  opacity: 0;
+  transition: opacity 0.8s;
+}
+
+.page.active {
+  opacity: 1;
+}
+
+/* TITRES & TEXTE */
+.page-title {
+  font-family: "Cinzel", serif;
+  font-size: 2rem;
+  color: #d6b56c;
+  margin-bottom: 18px;
+}
+
+.page-text {
+  font-size: 1.1rem;
+  line-height: 1.85;
+  text-align: justify;
+}
+
+/* COUVERTURE */
+.cover img {
+  max-width: 420px;
+  border-radius: 8px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.9);
+}
+
+/* CURSEUR */
+#fairy-cursor {
+  position: fixed;
+  width: 42px;
+  height: 60px;
+  background: url("assets/cursor/fee_1.png") center / contain no-repeat;
+  pointer-events: none;
+  z-index: 9999;
+}
