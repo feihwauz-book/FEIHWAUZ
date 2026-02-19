@@ -11,67 +11,9 @@
   <!-- Styles -->
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <style>
-    /* Bouton Acheter en haut à droite */
-    .buy-btn {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      padding: 12px 20px;
-      background: #ff7f50;
-      color: #fff;
-      font-weight: bold;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-family: 'Cinzel', serif;
-      transition: all 0.3s ease;
-      z-index: 2000;
-      text-decoration: none;
-    }
-    .buy-btn:hover {
-      background: #ff4500;
-      transform: scale(1.05);
-    }
-
-    /* Bandeau promo très visible, style “magique” */
-    .promo-banner {
-      position: fixed;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      background: linear-gradient(90deg, #ff7f50, #ff4500, #ff7f50);
-      color: #fff;
-      font-family: 'Cinzel', serif;
-      font-size: 18px;
-      font-weight: bold;
-      padding: 15px 30px;
-      border-radius: 0 0 20px 20px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-      text-align: center;
-      z-index: 3000;
-      animation: pulse 1.5s infinite alternate;
-      cursor: pointer;
-    }
-
-    @keyframes pulse {
-      0% { text-shadow: 0 0 5px #fff, 0 0 10px #ff7f50, 0 0 20px #ff4500; }
-      100% { text-shadow: 0 0 10px #fff, 0 0 20px #ff7f50, 0 0 40px #ff4500; }
-    }
-
-    .promo-banner:hover {
-      background: linear-gradient(90deg, #ff4500, #ff7f50, #ff4500);
-    }
-  </style>
 </head>
 
 <body>
-
-  <!-- Bandeau Promo -->
-  <div class="promo-banner">
-    🎉 Utilisez le code <strong>FEIHWAUZ5</strong> et obtenez <strong>5% de réduction</strong> sur votre achat ! ✨
-  </div>
 
   <!-- Curseur fée -->
   <div id="fairy-cursor"></div>
@@ -79,19 +21,26 @@
   <!-- Background animé -->
   <div class="background"></div>
 
-  <!-- Particules arc-en-ciel -->
-  <div id="particles-container"
-       style="position:fixed; inset:0; pointer-events:none; z-index:1000;">
-  </div>
-
-  <!-- Bouton Acheter -->
+  <!-- Particules magiques -->
+  <div id="particles-container"></div>
+  
+   <!-- Bouton Acheter -->
   <a href="https://www.helloeditions.fr/produit/feihwauz-reveille-des-brumes-tome-i/" class="buy-btn" target="_blank">Acheter</a>
 
-  <!-- Header -->
+  <!-- Header avec titre -->
   <header class="header-container">
     <h1 class="title">
       Le Monde de <span class="highlight">FEIHWAUZ</span>
     </h1>
+  </header>
+
+  <!-- Sidebar gauche -->
+  <div class="sidebar-left">
+
+    <!-- Image profil -->
+    <div class="sidebar-profile">
+      <img src="assets/emblem.jpg" alt="Profil Feihwauz">
+    </div>
 
     <!-- Réseaux sociaux -->
     <div class="social-icons">
@@ -101,16 +50,18 @@
       <a href="https://www.instagram.com/lucie.gluck/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
     </div>
 
-    <nav class="nav-menu">
-      <button class="magic-btn" onclick="turn(0)">Synopsis</button>
-      <button class="magic-btn" onclick="turn(1)">Univers</button>
-      <button class="magic-btn" onclick="turn(2)">Personnages</button>
-      <button class="magic-btn" onclick="turn(3)">Lecture</button>
-      <button class="magic-btn" onclick="turn(4)">Vidéos</button>
-      <button class="magic-btn" onclick="turn(5)">Dédicaces</button>
-      <button class="magic-btn" onclick="turn(6)">Autrice</button>
+    <!-- Navigation verticale -->
+    <nav class="sidebar-nav">
+      <button onclick="turn(0)">Synopsis</button>
+      <button onclick="turn(1)">Univers</button>
+      <button onclick="turn(2)">Personnages</button>
+      <button onclick="turn(3)">Lecture</button>
+      <button onclick="turn(5)">Dédicaces</button>
+      <button onclick="turn(6)">Autrice</button>
+      <button onclick="turn(7)">Contact</button>
     </nav>
-  </header>
+
+  </div>
 
   <!-- Livre -->
   <main class="book-container">
@@ -205,21 +156,6 @@
         </video>
       </section>
 
-      <!-- Vidéos -->
-      <section class="page">
-        <h2 class="page-title">Vidéos YouTube</h2>
-        <p class="page-text">
-          Retrouvez ici lectures, présentations et créations autour de l’univers
-          de Feihwauz.
-        </p>
-        <iframe
-          width="100%"
-          height="315"
-          src="https://www.youtube.com/embed/ID_VIDEO"
-          frameborder="0"
-          allowfullscreen>
-        </iframe>
-      </section>
 
       <!-- Dédicaces -->
       <section class="page">
@@ -229,9 +165,8 @@
           culturelles.
         </p>
         <ul class="signing-list">
-          <li>📍 Lieu – Date</li>
-          <li>📍 Lieu – Date</li>
-          <li>📍 Lieu – Date</li>
+          <li>📍 <a href="https://maps.app.goo.gl/a6BoTWUQHYJctimn9" target="_blank">Paimpont</a> – 11 avril 2026</li>
+          <li>📍 <a href="https://maps.app.goo.gl/a6BoTWUQHYJctimn9" target="_blank">Paimpont</a> – 12 avril 2026</li>
         </ul>
       </section>
 
@@ -248,19 +183,42 @@
           l’association <strong>La Chandelle de Glace</strong>.
         </p>
       </section>
+            <!-- Contact -->
+      <section class="page">
+        <h2 class="page-title">Contact</h2>
+        <p class="page-text">
+          Vous pouvez m’envoyer un message directement via ce formulaire :
+        </p>
+
+        <form id="contact-form" action="https://formspree.io/f/xpqjjwnl" method="POST">
+          <label for="name">Nom :</label>
+          <input type="text" id="name" name="name" required>
+
+          <label for="email">Email :</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="message">Message :</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+
+          <button type="submit">Envoyer</button>
+        </form>
+
+        <div id="form-response"></div>
+      </section>
 
     </div>
+
   </main>
 
-  <!-- Script -->
+  <!-- Footer avec code promo -->
+  <footer class="footer-container">
+    <div class="promo-banner">
+      🎉 Code <strong>FEIHWAUZ5</strong> – <strong>5% de réduction</strong> ! ✨
+    </div>
+    <div style="margin-top:15px;">&copy; 2026 Le Monde de FEIHWAUZ</div>
+  </footer>
+
+  <!-- Scripts -->
   <script src="script.js"></script>
-
-  <script>
-    // Fermer le bandeau promo en cliquant dessus
-    document.querySelector('.promo-banner').addEventListener('click', function() {
-      this.style.display = 'none';
-    });
-  </script>
-
 </body>
 </html>

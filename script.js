@@ -40,23 +40,24 @@ const menuItems = document.querySelectorAll('.menu-item');
 
 menuItems.forEach(item => {
   const button = item.querySelector('button');
+  if (!button) return;
 
   // Clic pour mobile : toggle "open" class
   button.addEventListener('click', () => {
     item.classList.toggle('open');
   });
 
-  // Optionnel : navigation vers une page en fonction du sous-menu cliqué
+  // Navigation vers une page en fonction du sous-menu
   const submenuLinks = item.querySelectorAll('.submenu li');
   submenuLinks.forEach((sub, index) => {
     sub.addEventListener('click', () => {
-      turn(index); // ici tu peux personnaliser pour chaque rubrique
+      turn(index);
     });
   });
 });
 
 // =======================
-// MUSIQUE
+// MUSIQUE (facultatif)
 // =======================
 const music = document.getElementById('music');
 const musicBtn = document.getElementById('music-btn');
@@ -110,7 +111,7 @@ function createFireExplosionFromButton(button) {
   container.appendChild(fragment);
 }
 
-// Explosion feu au clic sur les boutons
+// Explosion feu au clic sur tous les boutons magiques
 document.querySelectorAll('.magic-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     createFireExplosionFromButton(btn);
@@ -144,6 +145,7 @@ function animateFairy() {
 }
 animateFairy();
 
+// Animation des ailes de la fée
 setInterval(() => {
   fairy.style.backgroundImage = wing
     ? "url('assets/cursor/fee2.png')"
@@ -167,3 +169,43 @@ function spawnFairyParticles(x, y) {
   container.appendChild(p);
   setTimeout(() => p.remove(), 1000);
 }
+
+// =======================
+// FERMER BANNIERE PROMO
+// =======================
+document.querySelector('.promo-banner').addEventListener('click', function() {
+  this.style.display = 'none';
+
+  const form = document.getElementById('contact-form');
+const responseDiv = document.getElementById('form-response');
+
+if(form){
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        responseDiv.textContent = "Message envoyé avec succès ✨";
+        form.reset();
+      } else {
+        const data = await response.json();
+        responseDiv.textContent = data.errors ? data.errors.map(err => err.message).join(", ") : "Erreur lors de l'envoi.";
+      }
+
+    } catch (error) {
+      responseDiv.textContent = "Erreur réseau ou serveur.";
+    }
+  });
+}
+
+});
