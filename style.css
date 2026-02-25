@@ -376,8 +376,8 @@ h1 {
   padding-top: 20px;
   gap: 20px;
   border-right: 2px solid #a88a44;
-  z-index: 2000;
-background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.5));
+  z-index: 2000; /* au-dessus du reste de la page */
+  background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.9));
   overflow: hidden;
 }
 
@@ -385,13 +385,20 @@ background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.5));
 .sidebar-left::before {
   content: "";
   position: absolute;
-  top: 0;               /* commence en haut */
+  top: 0;                  /* commence en haut */
   left: 0;
-  width: 100%;          /* prend toute la largeur de la sidebar */
-  height: 100%;         /* prend toute la hauteur de la sidebar */
-  background: url('liere.png') no-repeat center top;
-  background-size: cover;   /* couvre toute la sidebar, même si ça déforme un peu */
-  opacity: 0.35;        /* rend le lierre transparent */
-  pointer-events: none; /* clics passent au-dessus */
-  z-index: 0;           /* derrière tout le contenu */
+  width: 100%;             /* prend toute la largeur de la sidebar */
+  height: 100%;            /* prend toute la hauteur de la sidebar */
+  background: url("liere.png") no-repeat center top;
+  background-size: cover;   /* couvre toute la sidebar, même si déformé un peu */
+  opacity: 0.65;            /* rend le lierre plus visible */
+  filter: brightness(1.2);  /* éclaire l'image si elle est sombre */
+  pointer-events: none;     /* clics passent au-dessus */
+  z-index: 0;               /* derrière tout le contenu */
+}
+
+/* Contenu de la sidebar au-dessus du lierre */
+.sidebar-left > * {
+  position: relative; /* pour que les enfants soient au-dessus de ::before */
+  z-index: 2;
 }
