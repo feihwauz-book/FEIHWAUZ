@@ -212,35 +212,6 @@ h1 {
 }
 
 /* =========================
-   FOOTER PROMO
-========================= */
-.promo-banner {
-  position: relative;
-  margin-top: 40px;
-  background: linear-gradient(90deg, #ff7f50, #ff4500, #ff7f50);
-  color: #fff;
-  font-family: 'Cinzel', serif;
-  font-size: 18px;
-  font-weight: bold;
-  padding: 15px 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-  text-align: center;
-  z-index: 1;
-  animation: pulse 1.5s infinite alternate;
-  cursor: pointer;
-}
-
-.promo-banner:hover {
-  background: linear-gradient(90deg, #ff4500, #ff7f50, #ff4500);
-}
-
-@keyframes pulse {
-  0% { text-shadow: 0 0 5px #fff, 0 0 10px #ff7f50, 0 0 20px #ff4500; }
-  100% { text-shadow: 0 0 10px #fff, 0 0 20px #ff7f50, 0 0 40px #ff4500; }
-}
-
-/* =========================
    CURSEUR FÉE
 ========================= */
 #fairy-cursor {
